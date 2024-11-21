@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import Searching from '../algorithms/searching.js';
+import Searching from '../src/searching.js';
 
 describe('Searching', () => {
     it('should find the index of the element using binary search', () => {

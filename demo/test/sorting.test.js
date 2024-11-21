@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import Sorting from '../algorithms/sorting.js';
+import Sorting from '../src/sorting.js';
 
 describe('Sorting', () => {
     it('should sort the array using bubble sort', () => {
