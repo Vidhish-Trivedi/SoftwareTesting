@@ -1,31 +1,3 @@
-"""
-Print all the Catalan numbers from 0 to n, n being the user input.
-
- * The Catalan numbers are a sequence of positive integers that
- * appear in many counting problems in combinatorics [1]. Such
- * problems include counting [2]:
- * - The number of Dyck words of length 2n
- * - The number well-formed expressions with n pairs of parentheses
- *   (e.g., `()()` is valid but `())(` is not)
- * - The number of different ways n + 1 factors can be completely
- *   parenthesized (e.g., for n = 2, C(n) = 2 and (ab)c and a(bc)
- *   are the two valid ways to parenthesize.
- * - The number of full binary trees with n + 1 leaves
-
- * A Catalan number satisfies the following recurrence relation
- * which we will use in this algorithm [1].
- * C(0) = C(1) = 1
- * C(n) = sum(C(i).C(n-i-1)), from i = 0 to n-1
-
- * In addition, the n-th Catalan number can be calculated using
- * the closed form formula below [1]:
- * C(n) = (1 / (n + 1)) * (2n choose n)
-
- * Sources:
- *  [1] https://brilliant.org/wiki/catalan-numbers/
- *  [2] https://en.wikipedia.org/wiki/Catalan_number
-"""
-
 
 def catalan_numbers(upper_limit: int) -> "list[int]":
     """

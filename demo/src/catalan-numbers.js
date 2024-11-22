@@ -1,10 +1,3 @@
-/**
- * @function catalanNumbers
- * @description Returns all catalan numbers from index 0 to n
- * @param {number} n
- * @returns {number[]} Array with the catalan numbers from 0 to n
- */
-
 const catalanNumbers = (n) => {
     if (n === 0) {
         return [1]

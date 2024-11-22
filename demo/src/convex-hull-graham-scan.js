@@ -1,19 +1,14 @@
 function compare(a, b) {
-    // Compare Function to Sort the points, a and b are points to compare
     if (a.x < b.x) return -1
     if (a.x === b.x && a.y < b.y) return -1
     return 1
   }
   function orientation(a, b, c) {
-    // Check orientation of Line(a,b) and Line(b,c)
     const alpha = (b.y - a.y) / (b.x - a.x)
     const beta = (c.y - b.y) / (c.x - b.x)
   
-    // Clockwise
     if (alpha > beta) return 1
-    // Anticlockwise
     else if (beta > alpha) return -1
-    // Colinear
     return 0
   }
   
@@ -27,7 +22,6 @@ function compare(a, b) {
     const p1 = points[0]
     const p2 = points[pointsLen - 1]
   
-    // Divide Hull in two halves
     const upperPoints = []
     const lowerPoints = []
   

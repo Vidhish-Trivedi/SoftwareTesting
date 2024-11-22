@@ -1,9 +1,3 @@
-/*
- *  This algorithm accepts a month in the format mm/yyyy.
- *  And prints out the month's calendar.
- *  It uses an epoch of 1/1/1900, Monday.
- */
-
 class Month {
     constructor() {
         this.Days = ['M', 'T', 'W', 'Th', 'F', 'S', 'Su']

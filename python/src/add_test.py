@@ -1,7 +1,9 @@
-from unittest import TestCase
-from add_src import mul
+import unittest
+from add import add
 
-class CalculatorTest(TestCase):
+class TestAdd(unittest.TestCase):
+    def test_add(self):
+        self.assertEqual(add(1, 4), 5)
 
-    def test_mul(self):
-        self.assertEqual(mul(2, 2), 4)
+if __name__ == '__main__':
+    unittest.main()
