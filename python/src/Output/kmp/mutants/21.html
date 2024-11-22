@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MutPy mutation report - mutation #21</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+    
+<link href="http://alexgorbatchev.com/pub/sh/current/styles/shCore.css" rel="stylesheet" type="text/css" />
+<link href="http://alexgorbatchev.com/pub/sh/current/styles/shThemeDefault.css" rel="stylesheet" type="text/css" />
+
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+    
+<script src="http://alexgorbatchev.com/pub/sh/current/scripts/shCore.js" type="text/javascript"></script>
+<script src="http://alexgorbatchev.com/pub/sh/current/scripts/shBrushPython.js" type="text/javascript"></script>
+<script type="text/javascript">
+    SyntaxHighlighter.all();
+    window.setTimeout(function () {
+        
+        $('.line.number29').attr('title', 'COI');
+        
+    }, 0);
+</script>
+
+</head>
+<body>
+    <div class="container">
+        
+<div class="page-header">
+    <h1>Mutation #21</h1>
+</div>
+<h3>Details</h3>
+<ul>
+    <li>module - <code><module 'kmp' from 'C:\\Users\\Vidhish17\\Desktop\\SoftwareTesting\\python\\src\\kmp.py'></code></li>
+    <li><span class="label label-info">timeout</span></li>
+    
+    <li>duration - 5.026 s</li>
+    
+    
+</ul>
+
+<h3>Mutations</h3>
+<ul>
+    
+    <li>COI - line 29</li>
+    
+</ul>
+<h3>Mutant</h3>
+<pre class="brush: python; first-line: 1; highlight: [29]; toolbar: false;">class KMP:
+    def computeLPS(self, pattern):
+        lps = [0] * len(pattern)
+        length = 0
+        i = 1
+        while i < len(pattern):
+            if pattern[i] == pattern[length]:
+                length += 1
+                lps[i] = length
+                i += 1
+            
+            elif length != 0:
+                length = lps[length - 1]
+            else:
+                lps[i] = 0
+                i += 1
+        return lps
+    
+    def KMPSearch(self, text, pattern):
+        if (not pattern or not text):
+            return []
+        
+        lps = self.computeLPS(pattern)
+        result = []
+        
+        i = 0
+        j = 0
+        while i < len(text):
+            if not (pattern[j] == text[i]):
+                i += 1
+                j += 1
+            
+            if j == len(pattern):
+                result.append(i - j)
+                j = lps[j - 1]
+            elif (i < len(text) and pattern[j] != text[i]):
+                if j != 0:
+                    j = lps[j - 1]
+                else:
+                    i += 1
+        
+        return result</pre>
+
+    </div>
+</body>
+</html>

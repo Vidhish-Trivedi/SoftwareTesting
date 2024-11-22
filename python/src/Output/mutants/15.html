@@ -21,7 +21,7 @@
     SyntaxHighlighter.all();
     window.setTimeout(function () {
         
-        $('.line.number23').attr('title', 'COD');
+        $('.line.number12').attr('title', 'AOR');
         
     }, 0);
 </script>
@@ -35,69 +35,54 @@
 </div>
 <h3>Details</h3>
 <ul>
-    <li>module - <code><module 'validate_credit_card' from 'C:\\Users\\Vidhish17\\Desktop\\SoftwareTesting\\python\\src\\validate_credit_card.py'></code></li>
-    <li><span class="label label-success">killed</span> by <code>validate_credit_card_test.py::TestValidateCreditCard::test_card_that_fails_luhn_check</code></li>
+    <li>module - <code><module 'temperature_conversion' from 'C:\\Users\\Vidhish17\\Desktop\\SoftwareTesting\\python\\src\\temperature_conversion.py'></code></li>
+    <li><span class="label label-success">killed</span> by <code>temperature_conversion_test.py::TestTemperatureConversion::test_fahrenheit_to_celsius</code></li>
     
-    <li>duration - 0.076 s</li>
+    <li>duration - 0.056 s</li>
     
     
-    <li>tests run - 1</li>
+    <li>tests run - 4</li>
     
 </ul>
 
 <h3>Exception traceback</h3>
-<pre>self = <validate_credit_card_test.TestValidateCreditCard testMethod=test_card_that_fails_luhn_check>
+<pre>self = <temperature_conversion_test.TestTemperatureConversion testMethod=test_fahrenheit_to_celsius>
 
-    def test_card_that_fails_luhn_check(self):
-        invalid_card = '4111111111111112'
-        with self.assertRaises(ValueError) as context:
-            validate_credit_card(invalid_card)
->       self.assertEqual(str(context.exception), '4111111111111112 is an invalid credit card number because it fails the Luhn check.')
-E       AssertionError: '4111[16 chars]an invalid credit card number because of its length.' != '4111[16 chars]an invalid credit card number because it fails the Luhn check.'
-E       - 4111111111111112 is an invalid credit card number because of its length.
-E       ?                                                           ---    ----
-E       + 4111111111111112 is an invalid credit card number because it fails the Luhn check.
-E       ?                                                             +++++    ++++++++++++
+    def test_fahrenheit_to_celsius(self):
+        self.assertEqual(self.temp_conv.fahrenheit_to_celsius(32), 0)
+>       self.assertEqual(self.temp_conv.fahrenheit_to_celsius(212), 100)
+E       AssertionError: 4 != 100
 
-validate_credit_card_test.py:39: AssertionError</pre>
+temperature_conversion_test.py:22: AssertionError</pre>
 
 <h3>Mutations</h3>
 <ul>
     
-    <li>COD - line 23</li>
+    <li>AOR - line 12</li>
     
 </ul>
 <h3>Mutant</h3>
-<pre class="brush: python; first-line: 1; highlight: [23]; toolbar: false;">def luhn_validation(credit_card_number):
-    validation_sum = 0
-    for (index, digit) in enumerate(credit_card_number):
-        current_digit = int(digit)
-        if index % 2 == 0:
-            current_digit *= 2
-            if current_digit > 9:
-                current_digit %= 10
-                current_digit += 1
-        validation_sum += current_digit
-    return validation_sum % 10 == 0
-
-def validate_credit_card(credit_card_string):
-    valid_start_sub_string = ['4', '5', '6', '37', '34', '35']
+<pre class="brush: python; first-line: 1; highlight: [12]; toolbar: false;">class TemperatureConversion:
+    def celsius_to_fahrenheit(self, celsius):
+        return round(((celsius * 9) / 5) + 32)
     
-    if not (isinstance(credit_card_string, str)):
-        raise TypeError('The given value is not a string')
+    def celsius_to_kelvin(self, celsius):
+        return round(celsius + 273.15)
     
-    error_message = f'{credit_card_string} is an invalid credit card number because '
-    if not (credit_card_string.isdigit()):
-        raise TypeError(error_message + 'it has nonnumerical characters.')
-    credit_card_string_length = len(credit_card_string)
-    if 13 <= credit_card_string_length <= 16:
-        raise ValueError(error_message + 'of its length.')
-    if not (any((credit_card_string.startswith(sub_string) for sub_string in valid_start_sub_string))):
-        raise ValueError(error_message + 'of its first two digits.')
-    if not (luhn_validation(credit_card_string)):
-        raise ValueError(error_message + 'it fails the Luhn check.')
+    def celsius_to_rankine(self, celsius):
+        return round(((celsius * 9) / 5) + 491.67)
     
-    return True</pre>
+    def fahrenheit_to_celsius(self, fahrenheit):
+        return round(((fahrenheit - 32) / 5) / 9)
+    
+    def fahrenheit_to_kelvin(self, fahrenheit):
+        return round((((fahrenheit - 32) * 5) / 9) + 273.15)
+    
+    def kelvin_to_celsius(self, kelvin):
+        return round(kelvin - 273.15)
+    
+    def kelvin_to_fahrenheit(self, kelvin):
+        return round((((kelvin - 273.15) * 9) / 5) + 32)</pre>
 
     </div>
 </body>
