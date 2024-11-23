@@ -1,3 +1,7 @@
+# Software Testing - BitFlippers
+#### Contributors
+- Vidhish Trivedi (IMT2021055)
+- Rohit Shah (IMT2021027) 
 ### What is Mutation Testing?
 Mutation Testing is a type of Software Testing that is performed to design new software tests and also evaluate the quality of already existing software tests. 
 
@@ -30,6 +34,8 @@ A mutation operator provides a set of rules for making syntactic modifications t
 - Replacement of some boolean relations with others, e.g. $>$ with $\geq$, == and $\leq$
 - Replacement of variables with others from the same scope (variable types must be compatible)
 - Remove method body
+
+For the purpose of this project, we have covered some of the many available mutation operators, as covering all of them is not feasible in the given timeframe.
 ### Mutation Testing Levels
 - **Unit Mutation:** Unit mutation focuses on individual components like functions or methods. It delves into the internal workings of these units, making changes such as altering operators or tweaking logic. This testing method assesses how well the test suite can detect modifications within these isolated components, ensuring each piece of the software puzzle functions correctly on its own.
 - **Integration Mutation:** Integration mutation (sometimes called interface mutation) works by creating mutants on the connections between components. Most of the mutations are around method calls, and both the calling (caller) and the called (callee) method are considered.
@@ -46,7 +52,25 @@ Test cases are deemed mutation adequate if they achieve a score of 100%. Experim
 ### Details of Source Code
 The codebase comprises of various algorithms and computations. Our idea was to create a set of codes with decent number of operators, such as +, -, \*, /, $>$, $<$, etc. It is our belief that such pieces of codes are good candidates for mutation testing as they provide a significant chance for mutations to occur.
 
-ADD DETAILS ABOUT FILES, 1 LINE PER FILE.
-#### Lines of Code (only the source code)
-TODO
+The algorithms under test span from simple programs such as addition, to interesting mathematical concepts such as computing the convex hull for a set of points and Simpson integration. The source code in between covers interesting applications of programming, such as credit card number validation, and glosses over a few popular DSA algorithms like KMP string matching and connected components in a graph. This showcases the usefulness of Mutation Testing (and Testing in general) across different programming tasks.
+#### Lines of Code
+- **Source Code:** 456 (JavaScript) + 366 (Python) = 822 lines
+- **Test Cases:** 535 (JavaScript) + 466 (Python) = 1001 lines
+Besides these components, the project codebase also includes a PowerShell script to automate running MutPy on multiple files in a directory.
+#### Mutation Operators Used
+##### Python (MutPy)
+1. AOR - Arithmetic Operator Replacement
+2. ASR - Assignment Operator Replacement
+3. BCR (incompetent) - Break Continue Replacement
+4. COI - Conditional Operator Insertion
+5. EHD (incompetent)
+6. EXS (incompetent)
+7. ROR - Relational Operator Replacement
+8. AOD - Arithmetic Operator Deletion
+9. LCR - Logical Connector Replacement
+10. COD - Conditional Operator Deletion
+##### JavaScript (Stryker)
 
+
+### Future Scope
+TALK ABOUT INTEGRATION MUTATION TESTING
