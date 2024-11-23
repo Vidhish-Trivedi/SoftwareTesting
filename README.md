@@ -1,7 +1,7 @@
 # Software Testing - BitFlippers
 #### Contributors
-- Vidhish Trivedi (IMT2021055)
-- Rohit Shah (IMT2021027) 
+- Vidhish Trivedi (IMT2021055): [GitHub (Vidhish Trivedi)](https://github.com/Vidhish-Trivedi)
+- Rohit Shah (IMT2021027): [GitHub (Rohit Shah)](https://github.com/RohitShah1706)
 ### What is Mutation Testing?
 Mutation Testing is a type of Software Testing that is performed to design new software tests and also evaluate the quality of already existing software tests. 
 
@@ -69,8 +69,28 @@ Besides these components, the project codebase also includes a PowerShell script
 8. AOD - Arithmetic Operator Deletion
 9. LCR - Logical Connector Replacement
 10. COD - Conditional Operator Deletion
+
+The details for Mutation Testing using MutPy can be found in the generated HTML reports at `./python/src/Output/{algorithm_name}`. A couple of examples are attached below (convex hull and temperature conversion, respectively):
+![[Pasted image 20241123120836.png]]
+![[Pasted image 20241123120919.png]]
 ##### JavaScript (Stryker)
 
 
+### Running The Project
+#### Common Steps
+```bash
+git clone https://github.com/Vidhish-Trivedi/SoftwareTesting.git
+cd SoftwareTesting
+```
+#### JavaScript
+```bash
+cd javascript
+npm install
+```
+
+#### Python
+
 ### Future Scope
-TALK ABOUT INTEGRATION MUTATION TESTING
+The scope of the current project is limited to Mutation Testing over unit tests of various algorithms and computations which we believe are good candidates for mutation testing. This is achieved through the use of tools such as Stryker (for JavaScript) and MutPy (for Python).
+
+The tools mentioned above also support Mutation Testing over integration tests. In the future, it may be possible to add certain related algorithms into a package and develop a library. In such a scenario, integration testing would be useful, and Mutations over it should follow.
