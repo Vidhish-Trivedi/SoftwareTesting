@@ -1,5 +1,4 @@
-import { validateCreditCard } from './src/validate-credit-card.js';
-
+import { complexMathCalculation } from './src/integrationSrc.js';
 
 function main() {
     // Example usage of the algorithms
@@ -12,9 +11,8 @@ function main() {
 
     // const index = searching.binarySearch(sortedArray, 5);
     // console.log(`Index of element '5': ${index}`);
-
-    console.log(validateCreditCard('371449635398431'));
+    console.log(complexMathCalculation(2, 3, 4, 5));
+    
 }
 
 main();
-//  find . -type f -exec wc -l {} + | awk '{total += $1} END {print total}'
