@@ -40,7 +40,95 @@ For the purpose of this project, we have covered some of the many available muta
 - **Unit Mutation:** Unit mutation focuses on individual components like functions or methods. It delves into the internal workings of these units, making changes such as altering operators or tweaking logic. This testing method assesses how well the test suite can detect modifications within these isolated components, ensuring each piece of the software puzzle functions correctly on its own.
 - **Integration Mutation:** Integration mutation (sometimes called interface mutation) works by creating mutants on the connections between components. Most of the mutations are around method calls, and both the calling (caller) and the called (callee) method are considered.
 
-For the purpose of this project, we have focused our efforts on Unit Mutation Testing.
+For the purpose of this project, we have focused our efforts on Unit Mutation Testing. We have also covered Mutation Integration Testing manually, as the tools we chose do not support it directly.
+
+The Mutation Integration Operators covered are:
+1. IPEX - Integration Parameter Exchange
+2. IMCD - Integration Method Call Deletion
+3. IREM - Integration Return Expression Modification
+
+Original Code:
+```Javascript
+function complexMathCalculation(a, b, c, d) {
+    const sum = add(a, b);
+    const difference = subtract(c, d);
+    const product = multiply(sum, difference);
+    const result = divide(product, 2);
+    let finalResult = result;
+    
+    for (let i = 0; i < 5; i++) {
+        if (i % 2 === 0) {
+            finalResult = add(finalResult, i);
+        } else {
+            finalResult = subtract(finalResult, i);
+        }
+    }
+    return finalResult;
+}
+```
+
+IPEX Mutant:
+```javascript
+// mutant ipex
+function complexMathCalculation1(d, b, c, a) {
+    const sum = add(a, b);
+    const difference = subtract(c, d);
+    const product = multiply(sum, difference);
+    const result = divide(product, 2);
+    let finalResult = result;
+    
+    for (let i = 0; i < 5; i++) {
+        if (i % 2 === 0) {
+            finalResult = add(finalResult, i);
+        } else {
+            finalResult = subtract(finalResult, i);
+        }
+    }
+    return finalResult;
+}
+```
+
+IMCD Mutant:
+```javascript
+// mutant imcd
+function complexMathCalculation2(a, b, c, d) {
+    const sum = 100;
+    const difference = subtract(c, d);
+    const product = multiply(sum, difference);
+    const result = divide(product, 2);
+    let finalResult = result;
+    
+    for (let i = 0; i < 5; i++) {
+        if (i % 2 === 0) {
+            finalResult = add(finalResult, i);
+        } else {
+            finalResult = subtract(finalResult, i);
+        }
+    }
+    return finalResult;
+}
+```
+
+IREM Mutant:
+```javascript
+// mutant irem
+function complexMathCalculation3(a, b, c, d) {
+    const sum = add(a, b);
+    const difference = subtract(c, d);
+    const product = multiply(sum, difference);
+    const result = divide(product, 2);
+    let finalResult = result;
+    
+    for (let i = 0; i < 5; i++) {
+        if (i % 2 === 0) {
+            finalResult = add(finalResult, i);
+        } else {
+            finalResult = subtract(finalResult, i);
+        }
+    }
+    return -finalResult;
+}
+```
 ### Mutation Score
 The mutation score is defined as the percentage of killed mutants with the total number of mutants:
 
@@ -72,10 +160,16 @@ Besides these components, the project codebase also includes a PowerShell script
 
 The details for Mutation Testing using MutPy can be found in the generated HTML reports at `./python/src/Output/{algorithm_name}`. A couple of examples are attached below (convex hull and temperature conversion, respectively):
 ![[Pasted image 20241123120836.png]]
+
 ![[Pasted image 20241123120919.png]]
 ##### JavaScript (Stryker)
+![[Pasted image 20241124183040.png]]
 
+![[Pasted image 20241124183123.png]]
 
+![[Pasted image 20241124183154.png]]
+
+![[Pasted image 20241124183127.png]]
 ### Running The Project
 #### Common Steps
 ```bash
@@ -115,6 +209,3 @@ python.exe C:\Users\Vidhish17\AppData\Local\Packages\PythonSoftwareFoundation.Py
 For both Stryker and MutPy, we are able to generate interactive HTML reports which summarize the results for mutation testing. 
 ### Future Scope
 The scope of the current project is limited to Mutation Testing over unit tests of various algorithms and computations which we believe are good candidates for mutation testing. This is achieved through the use of tools such as Stryker (for JavaScript) and MutPy (for Python).
-
-The tools mentioned above also support Mutation Testing over integration tests. In the future, it may be possible to add certain related algorithms into a package and develop a library. In such a scenario, integration testing would be useful, and Mutations over it should follow.
-
