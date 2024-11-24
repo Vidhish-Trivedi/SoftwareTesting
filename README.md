@@ -88,9 +88,33 @@ cd javascript
 npm install
 ```
 
-#### Python
+To run the test cases:
+```bash
+npm test
+```
 
+For mutation testing:
+```bash
+npx stryker run
+```
+#### Python
+```bash
+pip install pytest mutpy
+```
+
+For mutation testing:
+```bash
+mut.py --target src_file --unit-test test_file -m --runner pytest --report-html Output/
+```
+
+Alternatively, you may try:
+```bash
+python.exe C:\Users\Vidhish17\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\Scripts\mut.py --target src_file --unit-test test_file -m --runner pytest --report-html Output/
+```
+
+For both Stryker and MutPy, we are able to generate interactive HTML reports which summarize the results for mutation testing. 
 ### Future Scope
 The scope of the current project is limited to Mutation Testing over unit tests of various algorithms and computations which we believe are good candidates for mutation testing. This is achieved through the use of tools such as Stryker (for JavaScript) and MutPy (for Python).
 
 The tools mentioned above also support Mutation Testing over integration tests. In the future, it may be possible to add certain related algorithms into a package and develop a library. In such a scenario, integration testing would be useful, and Mutations over it should follow.
+

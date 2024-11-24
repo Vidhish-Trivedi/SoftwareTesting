@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { expect } from 'chai';
 import { add, subtract, multiply, divide, complexMathCalculation, complexMathCalculation1, complexMathCalculation2, complexMathCalculation3 } from '../src/integrationSrc.js';
 
