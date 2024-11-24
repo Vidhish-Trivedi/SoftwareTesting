@@ -2,6 +2,7 @@
 #### Contributors
 - Vidhish Trivedi (IMT2021055): [GitHub (Vidhish Trivedi)](https://github.com/Vidhish-Trivedi)
 - Rohit Shah (IMT2021027): [GitHub (Rohit Shah)](https://github.com/RohitShah1706)
+- Repository Link: [SoftwareTesting](https://github.com/Vidhish-Trivedi/SoftwareTesting)
 ### What is Mutation Testing?
 Mutation Testing is a type of Software Testing that is performed to design new software tests and also evaluate the quality of already existing software tests. 
 
@@ -196,6 +197,11 @@ npx stryker run
 pip install pytest mutpy
 ```
 
+For running the testcases:
+```bash
+python test_file.py // eg: python add_test.py
+```
+
 For mutation testing:
 ```bash
 mut.py --target src_file --unit-test test_file -m --runner pytest --report-html Output/
@@ -207,5 +213,9 @@ python.exe C:\Users\Vidhish17\AppData\Local\Packages\PythonSoftwareFoundation.Py
 ```
 
 For both Stryker and MutPy, we are able to generate interactive HTML reports which summarize the results for mutation testing. 
+### Team Contributions
+Source code for computations and algorithms were worked on together by both members. Debugging and report were also jointly made.
+1. **Vidhish Trivedi (IMT2021055):** Testing of code, writing testcases, project setup and mutation testing using **Stryker, Mocha and JavaScript**.
+2. **Rohit Shah (IMT2021027):** Testing of code, writing testcases, project setup and mutation testing using **MutPy, Pytest and Python**.
 ### Future Scope
 The scope of the current project is limited to Mutation Testing over unit tests of various algorithms and computations which we believe are good candidates for mutation testing. This is achieved through the use of tools such as Stryker (for JavaScript) and MutPy (for Python).
